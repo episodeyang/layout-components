@@ -1,10 +1,11 @@
 /** Created by ge on 4/24/16. */
-import {createElement} from 'react';
+import React, {PropTypes} from 'react';
 
 import {flexRow, flexColumn, flexFluid, flexFixed} from "./style-globals";
 
 export default function Flex(_props) {
   var {tagName="div", style, row, column, fill, align, children = [], ...props} = _props;
+  var Tag = tagName;
   var thisStyle;
   if (column) thisStyle = flexColumn;
   if (row) thisStyle = flexRow;
@@ -14,5 +15,22 @@ export default function Flex(_props) {
     top: 0, bottom: 0, left: 0, right: 0
   };
   if (align) thisStyle.alignItems = align;
-  return createElement(tagName, {...props, style: {...thisStyle, ...style}}, children);
+  return (
+    <Tag style={ {...thisStyle, ...style}} {...props}>
+      {children}
+    </Tag>);
 }
+
+var {any, bool, string} = PropTypes;
+Flex.prototype.propTypes = {
+  /** an optional */
+  tagName: string,
+  row: any,
+  column: any,
+  fill: bool,
+  align: string,
+  style: any
+};
+Flex.prototype.defaultProps = {
+  tagName: "div"
+};

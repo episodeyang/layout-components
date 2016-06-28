@@ -7,9 +7,9 @@ import Markdown from "react-markdownit";
 import Highlight from "react-highlight.js";
 import PropsTable from "react-component-props-table";
 
-import HappySandwichMakerExample from "../HappySandwichMaker.example";
-import HappySandwichMakerSource from "!!raw!../HappySandwichMaker.example";
-import HappySandwichMakerAST from "!!react-docgen!../HappySandwichMaker";
+import FlexExample from "../Flex.example";
+import FlexSource from "!!raw!../Flex.example";
+import FlexAST from "!!react-docgen!../Flex";
 
 export default function Readme({}) {
   return (
@@ -49,20 +49,20 @@ export default function Readme({}) {
       2. a table of the component's props that is generated automatically
       3. **source** of the example component
 
-      ## Example Component: \`HappySandwichMaker\`
+      ## Example Component: \`Flex\`
       This component makes you a delicious Subway sandwich.
       `}
-      <HappySandwichMakerExample/>
+      <FlexExample/>
       ### Props
       {`This table below is generated automatically`}
       <div className="table-container horizontal-scroll flex-column center">
-        <PropsTable propMetaData={HappySandwichMakerAST.props}/>
+        <PropsTable propMetaData={FlexAST.props}/>
       </div>
       {`
       ### Usage Example
 
       The source code below of the example above is loaded using the webpack raw loader.`}
-      <Highlight>{HappySandwichMakerSource}</Highlight>
+      <Highlight>{FlexSource}</Highlight>
       {`
       ## Develop
 
