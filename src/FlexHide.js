@@ -1,10 +1,11 @@
 /** Created by ge on 4/27/16. */
-import React from "react";
+import React, {Component, PropTypes} from "react";
 import ReactDOM from "react-dom";
 import FlexItem from "./FlexItem";
 
-var {string, bool, func, any, node,} = React.PropTypes;
-export default class FlexHide extends React.Component {
+var {string, bool, func, any, node} = PropTypes;
+export default class FlexHide extends Component {
+
   static propTypes = {
     // fixed: any.isRequired,
     hide: bool,
