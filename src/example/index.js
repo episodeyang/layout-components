@@ -5,7 +5,5 @@ import React from "react";
 import {render} from "react-dom";
 import Readme from "./Readme";
 
-document.addEventListener("DOMContentLoaded", function (event) {
-  render(<Readme/>, document.body.querySelector('#readme-container'));
-});
+render(<Readme/>, document.body.querySelector('#readme-container'));
 

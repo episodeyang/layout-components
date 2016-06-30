@@ -9,22 +9,30 @@ const styles = {};
 var {any} = PropTypes;
 export default class FlexItem extends Component {
   static propTypes = {
+    /** if the component is fluid (width/height) */
     fluid: any,
+    /** if the component is fixed (width/height) */
     fixed: any,
+    /**  width */
     width: any,
+    /** height */
+    height: any,
+    /** style of component */
     style: any,
     children: any
   };
 
   componentDidMount() {
     this.container = ReactDOM.findDOMNode(this.refs["DIV"]);
-    var {width} = this.props;
+    var {width, height} = this.props;
     if (width) this.setWidth(width);
+    if (height) this.setHeight(height);
   }
 
   componentWillReceiveProps(newProps) {
-    var {width} = newProps;
+    var {width, height} = this.props;
     if (width) this.setWidth(width);
+    if (height) this.setHeight(height);
   }
 
   componentWillUnmount() {
@@ -32,6 +40,10 @@ export default class FlexItem extends Component {
 
   setWidth(width) {
     this.container.style.width = width;
+  }
+
+  setHeight(height) {
+    this.container.style.height = height;
   }
 
   render() {

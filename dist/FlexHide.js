@@ -34,14 +34,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var _React$PropTypes = _react2.default.PropTypes;
-var string = _React$PropTypes.string;
-var bool = _React$PropTypes.bool;
-var func = _React$PropTypes.func;
-var any = _React$PropTypes.any;
-var node = _React$PropTypes.node;
-var FlexHide = (_temp2 = _class = function (_React$Component) {
-  _inherits(FlexHide, _React$Component);
+var string = _react.PropTypes.string;
+var bool = _react.PropTypes.bool;
+var func = _react.PropTypes.func;
+var any = _react.PropTypes.any;
+var node = _react.PropTypes.node;
+var FlexHide = (_temp2 = _class = function (_Component) {
+  _inherits(FlexHide, _Component);
 
   function FlexHide() {
     var _Object$getPrototypeO;
@@ -272,7 +271,7 @@ var FlexHide = (_temp2 = _class = function (_React$Component) {
   }]);
 
   return FlexHide;
-}(_react2.default.Component), _class.propTypes = {
+}(_react.Component), _class.propTypes = {
   // fixed: any.isRequired,
   hide: bool,
   width: any.isRequired,
