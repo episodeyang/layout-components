@@ -13,7 +13,7 @@ var _reactMarkdownit = require("react-markdownit");
 
 var _reactMarkdownit2 = _interopRequireDefault(_reactMarkdownit);
 
-var _reactHighlight = require("react-highlight.js");
+var _reactHighlight = require("@episodeyang/react-highlight.js");
 
 var _reactHighlight2 = _interopRequireDefault(_reactHighlight);
 
