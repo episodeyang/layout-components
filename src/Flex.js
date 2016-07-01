@@ -1,7 +1,7 @@
 /** Created by ge on 4/24/16. */
 import React, {PropTypes} from 'react';
 
-import {flexRow, flexColumn, flexFluid, flexFixed} from "./style-globals";
+import {flexRow, flexColumn} from "./style-globals";
 
 export default function Flex(_props) {
   var {tagName="div", style, row, column, fill, align, children = [], ...props} = _props;

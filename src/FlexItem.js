@@ -13,9 +13,9 @@ export default class FlexItem extends Component {
     fluid: any,
     /** if the component is fixed (width/height) */
     fixed: any,
-    /**  width */
+    /**  width e.g. `100px`, `50%`, `40em` etc. */
     width: any,
-    /** height */
+    /** height e.g. `100px`, `50%`, `40em` etc. */
     height: any,
     /** style of component */
     style: any,
