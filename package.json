@@ -1,7 +1,7 @@
 {
-  "name": "react-es6-template",
+  "name": "react-layout-components",
   "version": "0.0.0",
-  "description": "a template for react es6 components. Contains webpack configuration and document generator.",
+  "description": "A React Layout Componentss. Contains webpack configuration and document generator.",
   "main": "dist/index.js",
   "scripts": {
     "dev": "babel-node src/index.js",
@@ -18,11 +18,11 @@
     "gh-pages-force": "git push origin `git subtree split --prefix dist/example`:gh-pages --force",
     "build-static-docs": "webpack --progress --profile --colors --config webpack.build-static-docs.config.js",
     "build-docs": "webpack --progress --profile --colors --config webpack.build-docs.config.js",
-    "serve-docs": "webpack-dev-server --progress --profile --colors --hot --config webpack.develop.config.js"
+    "serve-docs": "webpack-dev-server --progress --profile --colors --config webpack.develop.config.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/episodeyang/react-es6-template.git"
+    "url": "git+https://github.com/episodeyang/react-layout-components.git"
   },
   "keywords": [
     "react",
@@ -37,9 +37,9 @@
   "author": "Ge Yang <yangge1987@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/episodeyang/react-es6-template/issues"
+    "url": "https://github.com/episodeyang/react-layout-components/issues"
   },
-  "homepage": "https://github.com/episodeyang/react-es6-template#readme",
+  "homepage": "https://github.com/episodeyang/react-layout-components#readme",
   "devDependencies": {
     "@episodeyang/react-highlight.js": "^1.0.3",
     "autoprefixer": "^6.3.6",

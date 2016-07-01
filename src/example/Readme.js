@@ -1,7 +1,7 @@
 /**
  * Created by ge on 6/24/16.
  */
-import React from "react";
+import React, {Component} from "react";
 import Markdown from "react-markdownit";
 
 import Highlight from "@episodeyang/react-highlight.js";
@@ -11,59 +11,37 @@ import FlexExample from "../Flex.example";
 import FlexSource from "!!raw!../Flex.example";
 import FlexAST from "!!react-docgen!../Flex";
 
-export default function Readme({}) {
-  return (
-    <Markdown stripIndent={true}>{`
-      # React ES6 Component Template
+export default class Readme extends Component {
+  render() {
+    return (
+      <Markdown stripIndent={true}>{`
+      # React Layout Components
 
-      [![github](https://img.shields.io/github/downloads/episodeyang/react-es6-template/total.svg?style=flat-square&maxAge=2592000)]()
+      A collection of layout components that allow you to write responsive views in a functional way.
 
-      A template repo for react components written with es6 syntax.
+      [![github](https://img.shields.io/github/downloads/episodeyang/react-layout-components/total.svg?style=flat-square&maxAge=2592000)]()
 
-      ## Usage (as a template)
+      ## Usage
 
       ~~~shell
-      git clone https://github.com/episodeyang/react-es6-template \<name of your new component\>
-      cd \<name of your new component\>
-      rm -r .git
-
-      # now do your git init, git add/coommit/push
-      # replace "react-es6-template" with your own
-      # replace "react es6 template" with your own
-      # replace "react es6 component" with you own etc.
+      npm install react-layout-components
       ~~~
-
-      After cloning from gitHub, you can run the example by doing
-      ~~~shell
-      npm run serve-docs
-      ~~~
-
-      And then open your browser at [http://localhost:5000](http://localhost:5000).
-
-      This one calls webpack (you should look at the \`package.json\` source) and uses the
-      webpack-dev-server to serve from \`./src/example/\` with hot module reloading.
-
-      ### How is this README written:
-      This readme is written with react and markdown. It includes:
-      1. a **live react component demo**
-      2. a table of the component's props that is generated automatically
-      3. **source** of the example component
 
       ## Example Component: \`Flex\`
       This component makes you a delicious Subway sandwich.
       `}
-      <FlexExample/>
-      ### Props
-      {`This table below is generated automatically`}
-      <div className="table-container horizontal-scroll flex-column center">
-        <PropsTable propMetaData={FlexAST.props}/>
-      </div>
-      {`
+        <FlexExample/>
+        ### Props
+        {`This table below is generated automatically`}
+        <div className="table-container horizontal-scroll flex-column center">
+          <PropsTable propMetaData={FlexAST.props}/>
+        </div>
+        {`
       ### Usage Example
 
       The source code below of the example above is loaded using the webpack raw loader.`}
-      <Highlight>{FlexSource}</Highlight>
-      {`
+        <Highlight>{FlexSource}</Highlight>
+        {`
       ## Develop
 
       1. First make your changes, then git commit. Use \`serve-docs\` to view live update at [http://localhost:5000](http://localhost:5000).
@@ -71,6 +49,7 @@ export default function Readme({}) {
       3. Then remember to push to master.
 
       `}
-    </Markdown>
-  )
+      </Markdown>
+    )
+  }
 }

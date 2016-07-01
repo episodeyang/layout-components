@@ -12,7 +12,13 @@ require('es6-promise').polyfill();
 const port = 5000;
 
 const build_entry = {
-  app: "./src/example/index.js",
+  app: [
+    'webpack-dev-server/client?http://localhost:5000',
+    'webpack/hot/only-dev-server',
+    'react-hot-loader/patch',
+    'babel-polyfill',
+    "./src/example/index"
+  ],
   vendor: [
     "react",
     "react-dom"
@@ -121,7 +127,16 @@ module.exports = {
     contentBase: "./src/example",
     noInfo: true, //  --no-info option
     hot: true,
-    inline: true
+    inline: false,
+    lazy: false,
+    quiet: true,
+    noInfo: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    },
+    states: {
+      colors: true
+    }
     // historyApiFallback: {
     //   index: "/index.html"
     // },
@@ -145,6 +160,8 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.js"),
-    new webpack.NoErrorsPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+    new webpack.ProvidePlugin({})// provide globals
   ]
 };
