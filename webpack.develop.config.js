@@ -13,7 +13,7 @@ const port = 5000;
 
 const build_entry = {
   app: [
-    'webpack-dev-server/client?http://localhost:5000',
+    `webpack-dev-server/client?http://localhost:${port}`,
     'webpack/hot/only-dev-server',
     'react-hot-loader/patch',
     'babel-polyfill',
@@ -30,6 +30,7 @@ module.exports = {
   devtool: process.env.WEBPACK_DEVTOOL || 'source-map',
   output: {
     path: '/dist/', //path.join(__dirname, 'gittor'),
+    publicPath: '/',
     filename: '[name].js',
     sourceMapFilename: '[name].js.map'
   },
@@ -39,6 +40,13 @@ module.exports = {
   module: {
     noParse: [
       /autoit\.js$/
+    ],
+    preLoaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /(node_modules)/,
+        loader: 'source-map'
+      }
     ],
     loaders: [
       {
@@ -130,7 +138,6 @@ module.exports = {
     inline: false,
     lazy: false,
     quiet: true,
-    noInfo: true,
     headers: {
       'Access-Control-Allow-Origin': '*'
     },
@@ -161,7 +168,7 @@ module.exports = {
   plugins: [
     new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.js"),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    // new webpack.NoErrorsPlugin(),
     new webpack.ProvidePlugin({})// provide globals
   ]
 };

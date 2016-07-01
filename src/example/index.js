@@ -10,7 +10,6 @@ const readmeContainer = document.body.querySelector('#readme-container');
 render(<AppContainer><Readme/></AppContainer>, readmeContainer);
 
 if (module.hot) {
-  console.log('hahahaha');
   module.hot.accept('./Readme', () => {
     const NextReadme = require('./Readme').default;
     render(
