@@ -25,10 +25,11 @@ function Flex(_props) {
   var column = _props.column;
   var fill = _props.fill;
   var align = _props.align;
+  var justify = _props.justify;
   var _props$children = _props.children;
   var children = _props$children === undefined ? [] : _props$children;
 
-  var props = _objectWithoutProperties(_props, ["tagName", "style", "row", "column", "fill", "align", "children"]);
+  var props = _objectWithoutProperties(_props, ["tagName", "style", "row", "column", "fill", "align", "justify", "children"]);
 
   var Tag = tagName;
   var thisStyle;
@@ -39,6 +40,7 @@ function Flex(_props) {
     top: 0, bottom: 0, left: 0, right: 0
   });
   if (align) thisStyle.alignItems = align;
+  if (justify) thisStyle.justifyContent = justify;
   return _react2.default.createElement(
     Tag,
     _extends({ style: _extends({}, thisStyle, style) }, props),
@@ -56,7 +58,10 @@ Flex.prototype.propTypes = {
   row: any,
   column: any,
   fill: bool,
+  /** one of center, start, end */
   align: string,
+  /** one of stretch, center, start, end */
+  justify: string,
   style: any
 };
 Flex.prototype.defaultProps = {
