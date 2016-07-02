@@ -1,13 +1,9 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _class, _temp; /** Created by ge on 4/24/16. */
 
@@ -41,61 +37,85 @@ var FlexItem = (_temp = _class = function (_Component) {
   function FlexItem() {
     _classCallCheck(this, FlexItem);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(FlexItem).apply(this, arguments));
+    return _possibleConstructorReturn(this, _Component.apply(this, arguments));
   }
 
-  _createClass(FlexItem, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.container = _reactDom2.default.findDOMNode(this.refs["DIV"]);
-      var width = this.props.width;
+  FlexItem.prototype.componentDidMount = function componentDidMount() {
+    this.container = _reactDom2.default.findDOMNode(this.refs["DIV"]);
+    var _props = this.props;
+    var width = _props.width;
+    var height = _props.height;
 
-      if (width) this.setWidth(width);
-    }
-  }, {
-    key: "componentWillReceiveProps",
-    value: function componentWillReceiveProps(newProps) {
-      var width = newProps.width;
+    if (width) this.setWidth(width);
+    if (height) this.setHeight(height);
+  };
 
-      if (width) this.setWidth(width);
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {}
-  }, {
-    key: "setWidth",
-    value: function setWidth(width) {
-      this.container.style.width = width;
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var flexStyle;
-      var _props = this.props;
-      var _props$tagName = _props.tagName;
-      var tagName = _props$tagName === undefined ? "div" : _props$tagName;
-      var _props$style = _props.style;
-      var style = _props$style === undefined ? {} : _props$style;
-      var fluid = _props.fluid;
-      var fixed = _props.fixed;
-      var width = _props.width;
-      var _props$children = _props.children;
-      var children = _props$children === undefined ? [] : _props$children;
+  FlexItem.prototype.componentWillReceiveProps = function componentWillReceiveProps(newProps) {
+    var _props2 = this.props;
+    var width = _props2.width;
+    var height = _props2.height;
 
-      var props = _objectWithoutProperties(_props, ["tagName", "style", "fluid", "fixed", "width", "children"]);
+    if (width) this.setWidth(width);
+    if (height) this.setHeight(height);
+  };
 
-      if (fluid) flexStyle = _styleGlobals.flexFluid;
-      if (fixed) flexStyle = _styleGlobals.flexFixed;
-      return (0, _react.createElement)(tagName, _extends({}, props, { ref: "DIV", style: _extends({}, flexStyle, style, { width: width }) }), children);
-    }
-  }]);
+  FlexItem.prototype.componentWillUnmount = function componentWillUnmount() {};
+
+  FlexItem.prototype.setWidth = function setWidth(width) {
+    this.container.style.width = width;
+  };
+
+  FlexItem.prototype.setHeight = function setHeight(height) {
+    this.container.style.height = height;
+  };
+
+  FlexItem.prototype.render = function render() {
+    var flexStyle;
+    var _props3 = this.props;
+    var _props3$tagName = _props3.tagName;
+    var tagName = _props3$tagName === undefined ? "div" : _props3$tagName;
+    var _props3$style = _props3.style;
+    var style = _props3$style === undefined ? {} : _props3$style;
+    var fluid = _props3.fluid;
+    var fixed = _props3.fixed;
+    var width = _props3.width;
+    var _props3$children = _props3.children;
+    var children = _props3$children === undefined ? [] : _props3$children;
+
+    var props = _objectWithoutProperties(_props3, ["tagName", "style", "fluid", "fixed", "width", "children"]);
+
+    if (fluid) flexStyle = _styleGlobals.flexFluid;
+    if (fixed) flexStyle = _styleGlobals.flexFixed;
+    return (0, _react.createElement)(tagName, _extends({}, props, { ref: "DIV", style: _extends({}, flexStyle, style, { width: width }) }), children);
+  };
 
   return FlexItem;
 }(_react.Component), _class.propTypes = {
+  /** if the component is fluid (width/height) */
   fluid: any,
+  /** if the component is fixed (width/height) */
   fixed: any,
+  /**  width e.g. `100px`, `50%`, `40em` etc. */
   width: any,
+  /** height e.g. `100px`, `50%`, `40em` etc. */
+  height: any,
+  /** style of component */
   style: any,
   children: any
 }, _temp);
 exports.default = FlexItem;
+;
+
+(function () {
+  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+    return;
+  }
+
+  __REACT_HOT_LOADER__.register(styles, "styles", "src/FlexItem.js");
+
+  __REACT_HOT_LOADER__.register(any, "any", "src/FlexItem.js");
+
+  __REACT_HOT_LOADER__.register(FlexItem, "FlexItem", "src/FlexItem.js");
+})();
+
+;

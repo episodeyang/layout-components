@@ -4,7 +4,7 @@ import React, {PropTypes} from 'react';
 import {flexRow, flexColumn} from "./style-globals";
 
 export default function Flex(_props) {
-  var {tagName="div", style, row, column, fill, align, children = [], ...props} = _props;
+  var {tagName="div", style, row, column, fill, align, justify, children = [], ...props} = _props;
   var Tag = tagName;
   var thisStyle;
   if (column) thisStyle = flexColumn;
@@ -15,6 +15,7 @@ export default function Flex(_props) {
     top: 0, bottom: 0, left: 0, right: 0
   };
   if (align) thisStyle.alignItems = align;
+  if (justify) thisStyle.justifyContent= justify;
   return (
     <Tag style={ {...thisStyle, ...style}} {...props}>
       {children}
@@ -28,7 +29,10 @@ Flex.prototype.propTypes = {
   row: any,
   column: any,
   fill: bool,
+  /** one of center, start, end */
   align: string,
+  /** one of stretch, center, start, end */
+  justify: string,
   style: any
 };
 Flex.prototype.defaultProps = {

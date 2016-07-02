@@ -1,8 +1,6 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 /** Created by ge on 4/18/16. */
 var flexRow = exports.flexRow = {
   display: "flex",
@@ -20,3 +18,20 @@ var flexFluid = exports.flexFluid = {
   position: "relative", // so that children can fill
   flex: "1 1 auto"
 };
+;
+
+(function () {
+  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+    return;
+  }
+
+  __REACT_HOT_LOADER__.register(flexRow, "flexRow", "src/style-globals.js");
+
+  __REACT_HOT_LOADER__.register(flexColumn, "flexColumn", "src/style-globals.js");
+
+  __REACT_HOT_LOADER__.register(flexFixed, "flexFixed", "src/style-globals.js");
+
+  __REACT_HOT_LOADER__.register(flexFluid, "flexFluid", "src/style-globals.js");
+})();
+
+;

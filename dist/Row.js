@@ -1,8 +1,6 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -35,3 +33,16 @@ function Row(_props) {
     return (0, _react.cloneElement)(children, thisProps);
   }
 }
+;
+
+(function () {
+  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+    return;
+  }
+
+  __REACT_HOT_LOADER__.register(thisStyle, "thisStyle", "src/Row.js");
+
+  __REACT_HOT_LOADER__.register(Row, "Row", "src/Row.js");
+})();
+
+;

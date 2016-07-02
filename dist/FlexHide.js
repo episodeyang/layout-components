@@ -1,13 +1,9 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.default = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _class, _temp2; /** Created by ge on 4/27/16. */
 
@@ -43,8 +39,6 @@ var FlexHide = (_temp2 = _class = function (_Component) {
   _inherits(FlexHide, _Component);
 
   function FlexHide() {
-    var _Object$getPrototypeO;
-
     var _temp, _this, _ret;
 
     _classCallCheck(this, FlexHide);
@@ -53,7 +47,7 @@ var FlexHide = (_temp2 = _class = function (_Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(FlexHide)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.onTransitionEnd = function (e) {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.onTransitionEnd = function (e) {
       _this.setState({ show: !_this.props.hide, entering: false, leaving: false });
       if (typeof _this.props.onTransitionEnd === "function") _this.props.onTransitionEnd(e);
       _this.getContainerWidth();
@@ -63,212 +57,205 @@ var FlexHide = (_temp2 = _class = function (_Component) {
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
-  _createClass(FlexHide, [{
-    key: "componentWillMount",
-    value: function componentWillMount() {
-      var hide = this.props.hide;
+  FlexHide.prototype.componentWillMount = function componentWillMount() {
+    var hide = this.props.hide;
 
-      this.setState({ show: !hide, entering: !hide, leaving: hide, init: true });
+    this.setState({ show: !hide, entering: !hide, leaving: hide, init: true });
+  };
+
+  FlexHide.prototype.componentDidMount = function componentDidMount() {
+    this.innerContainer = _reactDom2.default.findDOMNode(this.refs["DIV"]);
+    window.addEventListener("resize", this.getContainerWidth);
+    this.getContainerWidth();
+  };
+
+  FlexHide.prototype.componentWillReceiveProps = function componentWillReceiveProps(newProps) {
+    var hide = newProps.hide;
+    var width = newProps.width;
+    var children = newProps.children;
+
+    if (this.props.hide && !hide) this.setState({ show: true, entering: true, leaving: false, init: true });
+    if (!this.props.hide && hide) this.setState({ leaving: true, entering: false, init: true });
+  };
+
+  FlexHide.prototype.componentWillUnmount = function componentWillUnmount() {
+    window.removeEventListener("resize", this.getContainerWidth);
+  };
+
+  FlexHide.prototype.render = function render() {
+    var _this2 = this;
+
+    var _props2 = this.props;
+    var hide = _props2.hide;
+    var width = _props2.width;
+    var style = _props2.style;
+    var _props2$transition = _props2.transition;
+    var transition = _props2$transition === undefined ? "width 0.3s ease-out" : _props2$transition;
+    var children = _props2.children;
+    var onTransitionEnd = _props2.onTransitionEnd;
+
+    var props = _objectWithoutProperties(_props2, ["hide", "width", "style", "transition", "children", "onTransitionEnd"]);
+
+    var _style = _extends({}, style, { position: "relative", transition: transition });
+    var _innerTransition = "opacity 0.3s ease-out";
+
+    var _props = _extends({}, props, { onTransitionEnd: this.onTransitionEnd });
+    var _state = this.state;
+    var show = _state.show;
+    var entering = _state.entering;
+    var leaving = _state.leaving;
+    var init = _state.init;
+    var flexContainerWidth = _state.flexContainerWidth;
+
+    if (show && typeof flexContainerWidth === 'undefined') {
+      // initial rendering shown
+      var innerStyle = {
+        position: "absolute", top: 0, bottom: 0, left: 0, right: 0,
+        transition: _innerTransition
+      };
+      return _react2.default.createElement(
+        _FlexItem2.default,
+        _extends({ key: "flex-hide-item" }, _props, {
+          ref: "FlexItem",
+          width: width,
+          style: style }),
+        _react2.default.createElement(
+          "div",
+          { ref: "DIV", style: innerStyle },
+          children
+        )
+      );
+    } else if (!show && typeof flexContainerWidth === 'undefined') {
+      // initial rendering hidden
+      return _react2.default.createElement(
+        _FlexItem2.default,
+        _extends({ key: "flex-hide-item" }, _props, {
+          fixed: true, width: "0px",
+          ref: "FlexItem" }),
+        _react2.default.createElement("div", { ref: "DIV", style: { transition: _innerTransition } })
+      );
+    } else if (!show) {
+      return _react2.default.createElement(
+        _FlexItem2.default,
+        _extends({ key: "flex-hide-item" }, _props, {
+          fixed: true, width: "0px",
+          ref: "FlexItem" }),
+        _react2.default.createElement("div", { ref: "DIV" })
+      );
+    } else if (show && leaving && init) {
+      var _innerStyle = {
+        transition: _innerTransition,
+        position: "absolute",
+        top: 0,
+        bottom: 0,
+        right: 0,
+        width: flexContainerWidth + "px"
+      };
+      setTimeout(function () {
+        _this2.setState({ init: false });
+      }, 0);
+      return _react2.default.createElement(
+        _FlexItem2.default,
+        _extends({ key: "flex-hide-item" }, _props, {
+          ref: "FlexItem",
+          fixed: true,
+          width: flexContainerWidth + "px",
+          style: style }),
+        _react2.default.createElement(
+          "div",
+          { ref: "DIV",
+            style: _innerStyle },
+          children
+        )
+      );
+    } else if (show && leaving) {
+      var _innerStyle2 = {
+        transition: _innerTransition,
+        position: "absolute",
+        top: 0,
+        bottom: 0,
+        right: 0,
+        width: flexContainerWidth + "px"
+      };
+      return _react2.default.createElement(
+        _FlexItem2.default,
+        _extends({ key: "flex-hide-item" }, _props, {
+          ref: "FlexItem",
+          fixed: true,
+          width: "0px",
+          style: _style }),
+        _react2.default.createElement(
+          "div",
+          { ref: "DIV",
+            style: _extends({}, _innerStyle2, { opacity: 0 }) },
+          children
+        )
+      );
+    } else if (show && entering && init) {
+      var _innerStyle3 = {
+        position: "absolute", top: 0, bottom: 0, right: 0,
+        width: "100%",
+        minWidth: width,
+        opacity: 0
+      };
+      setTimeout(function () {
+        _this2.setState({ init: false });
+      }, 0);
+      return _react2.default.createElement(
+        _FlexItem2.default,
+        _extends({ key: "flex-hide-item" }, _props, {
+          ref: "FlexItem",
+          width: width,
+          style: _style }),
+        _react2.default.createElement(
+          "div",
+          { ref: "DIV",
+            style: _innerStyle3 },
+          children
+        )
+      );
+    } else if (show && entering) {
+      var _innerStyle4 = {
+        position: "absolute", top: 0, bottom: 0, right: 0,
+        transition: _innerTransition,
+        width: "100%",
+        minWidth: width,
+        opacity: 1
+      };
+      return _react2.default.createElement(
+        _FlexItem2.default,
+        _extends({ key: "flex-hide-item" }, _props, {
+          ref: "FlexItem",
+          width: width,
+          style: _style }),
+        _react2.default.createElement(
+          "div",
+          { ref: "DIV",
+            style: _innerStyle4 },
+          children
+        )
+      );
+    } else if (show) {
+      var _innerStyle5 = {
+        position: "absolute", top: 0, bottom: 0, right: 0,
+        opacity: 1,
+        transition: _innerTransition,
+        width: flexContainerWidth + "px"
+      };
+      return _react2.default.createElement(
+        _FlexItem2.default,
+        _extends({ key: "flex-hide-item" }, _props, {
+          ref: "FlexItem",
+          width: width,
+          style: _style }),
+        _react2.default.createElement(
+          "div",
+          { ref: "DIV", style: _innerStyle5 },
+          children
+        )
+      );
     }
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.innerContainer = _reactDom2.default.findDOMNode(this.refs["DIV"]);
-      window.addEventListener("resize", this.getContainerWidth);
-      this.getContainerWidth();
-    }
-  }, {
-    key: "componentWillReceiveProps",
-    value: function componentWillReceiveProps(newProps) {
-      var hide = newProps.hide;
-      var width = newProps.width;
-      var children = newProps.children;
-
-      if (this.props.hide && !hide) this.setState({ show: true, entering: true, leaving: false, init: true });
-      if (!this.props.hide && hide) this.setState({ leaving: true, entering: false, init: true });
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      window.removeEventListener("resize", this.getContainerWidth);
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      var _props2 = this.props;
-      var hide = _props2.hide;
-      var width = _props2.width;
-      var style = _props2.style;
-      var _props2$transition = _props2.transition;
-      var transition = _props2$transition === undefined ? "width 0.3s ease-out" : _props2$transition;
-      var children = _props2.children;
-      var onTransitionEnd = _props2.onTransitionEnd;
-
-      var props = _objectWithoutProperties(_props2, ["hide", "width", "style", "transition", "children", "onTransitionEnd"]);
-
-      var _style = _extends({}, style, { position: "relative", transition: transition });
-      var _innerTransition = "opacity 0.3s ease-out";
-
-      var _props = _extends({}, props, { onTransitionEnd: this.onTransitionEnd });
-      var _state = this.state;
-      var show = _state.show;
-      var entering = _state.entering;
-      var leaving = _state.leaving;
-      var init = _state.init;
-      var flexContainerWidth = _state.flexContainerWidth;
-
-      if (show && typeof flexContainerWidth === 'undefined') {
-        // initial rendering shown
-        var innerStyle = {
-          position: "absolute", top: 0, bottom: 0, left: 0, right: 0,
-          transition: _innerTransition
-        };
-        return _react2.default.createElement(
-          _FlexItem2.default,
-          _extends({ key: "flex-hide-item" }, _props, {
-            ref: "FlexItem",
-            width: width,
-            style: style }),
-          _react2.default.createElement(
-            "div",
-            { ref: "DIV", style: innerStyle },
-            children
-          )
-        );
-      } else if (!show && typeof flexContainerWidth === 'undefined') {
-        // initial rendering hidden
-        return _react2.default.createElement(
-          _FlexItem2.default,
-          _extends({ key: "flex-hide-item" }, _props, {
-            fixed: true, width: "0px",
-            ref: "FlexItem" }),
-          _react2.default.createElement("div", { ref: "DIV", style: { transition: _innerTransition } })
-        );
-      } else if (!show) {
-        return _react2.default.createElement(
-          _FlexItem2.default,
-          _extends({ key: "flex-hide-item" }, _props, {
-            fixed: true, width: "0px",
-            ref: "FlexItem" }),
-          _react2.default.createElement("div", { ref: "DIV" })
-        );
-      } else if (show && leaving && init) {
-        var _innerStyle = {
-          transition: _innerTransition,
-          position: "absolute",
-          top: 0,
-          bottom: 0,
-          right: 0,
-          width: flexContainerWidth + "px"
-        };
-        setTimeout(function () {
-          _this2.setState({ init: false });
-        }, 0);
-        return _react2.default.createElement(
-          _FlexItem2.default,
-          _extends({ key: "flex-hide-item" }, _props, {
-            ref: "FlexItem",
-            fixed: true,
-            width: flexContainerWidth + "px",
-            style: style }),
-          _react2.default.createElement(
-            "div",
-            { ref: "DIV",
-              style: _innerStyle },
-            children
-          )
-        );
-      } else if (show && leaving) {
-        var _innerStyle2 = {
-          transition: _innerTransition,
-          position: "absolute",
-          top: 0,
-          bottom: 0,
-          right: 0,
-          width: flexContainerWidth + "px"
-        };
-        return _react2.default.createElement(
-          _FlexItem2.default,
-          _extends({ key: "flex-hide-item" }, _props, {
-            ref: "FlexItem",
-            fixed: true,
-            width: "0px",
-            style: _style }),
-          _react2.default.createElement(
-            "div",
-            { ref: "DIV",
-              style: _extends({}, _innerStyle2, { opacity: 0 }) },
-            children
-          )
-        );
-      } else if (show && entering && init) {
-        var _innerStyle3 = {
-          position: "absolute", top: 0, bottom: 0, right: 0,
-          width: "100%",
-          minWidth: width,
-          opacity: 0
-        };
-        setTimeout(function () {
-          _this2.setState({ init: false });
-        }, 0);
-        return _react2.default.createElement(
-          _FlexItem2.default,
-          _extends({ key: "flex-hide-item" }, _props, {
-            ref: "FlexItem",
-            width: width,
-            style: _style }),
-          _react2.default.createElement(
-            "div",
-            { ref: "DIV",
-              style: _innerStyle3 },
-            children
-          )
-        );
-      } else if (show && entering) {
-        var _innerStyle4 = {
-          position: "absolute", top: 0, bottom: 0, right: 0,
-          transition: _innerTransition,
-          width: "100%",
-          minWidth: width,
-          opacity: 1
-        };
-        return _react2.default.createElement(
-          _FlexItem2.default,
-          _extends({ key: "flex-hide-item" }, _props, {
-            ref: "FlexItem",
-            width: width,
-            style: _style }),
-          _react2.default.createElement(
-            "div",
-            { ref: "DIV",
-              style: _innerStyle4 },
-            children
-          )
-        );
-      } else if (show) {
-        var _innerStyle5 = {
-          position: "absolute", top: 0, bottom: 0, right: 0,
-          opacity: 1,
-          transition: _innerTransition,
-          width: flexContainerWidth + "px"
-        };
-        return _react2.default.createElement(
-          _FlexItem2.default,
-          _extends({ key: "flex-hide-item" }, _props, {
-            ref: "FlexItem",
-            width: width,
-            style: _style }),
-          _react2.default.createElement(
-            "div",
-            { ref: "DIV", style: _innerStyle5 },
-            children
-          )
-        );
-      }
-    }
-  }]);
+  };
 
   return FlexHide;
 }(_react.Component), _class.propTypes = {
@@ -280,3 +267,24 @@ var FlexHide = (_temp2 = _class = function (_Component) {
   onTransitionEnd: func
 }, _temp2);
 exports.default = FlexHide;
+;
+
+(function () {
+  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+    return;
+  }
+
+  __REACT_HOT_LOADER__.register(string, "string", "src/FlexHide.js");
+
+  __REACT_HOT_LOADER__.register(bool, "bool", "src/FlexHide.js");
+
+  __REACT_HOT_LOADER__.register(func, "func", "src/FlexHide.js");
+
+  __REACT_HOT_LOADER__.register(any, "any", "src/FlexHide.js");
+
+  __REACT_HOT_LOADER__.register(node, "node", "src/FlexHide.js");
+
+  __REACT_HOT_LOADER__.register(FlexHide, "FlexHide", "src/FlexHide.js");
+})();
+
+;

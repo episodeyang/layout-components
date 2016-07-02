@@ -1,8 +1,6 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 exports.flexStyle = exports.Width = exports.Row = exports.Responsive = exports.FlexItem = exports.FlexHide = exports.Flex = undefined;
 
 var _Flex = require("./Flex");
@@ -68,3 +66,14 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var flexStyle = exports.flexStyle = styles;
+;
+
+(function () {
+  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+    return;
+  }
+
+  __REACT_HOT_LOADER__.register(flexStyle, "flexStyle", "src/index.js");
+})();
+
+;

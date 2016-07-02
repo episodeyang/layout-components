@@ -1,9 +1,7 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = Readme;
+exports.__esModule = true;
+exports.default = undefined;
 
 var _react = require("react");
 
@@ -21,46 +19,112 @@ var _reactComponentPropsTable = require("react-component-props-table");
 
 var _reactComponentPropsTable2 = _interopRequireDefault(_reactComponentPropsTable);
 
-var _Flex = require("../Flex.example");
+var _FlexColumn = require("../Flex-column.example");
+
+var _FlexColumn2 = _interopRequireDefault(_FlexColumn);
+
+var _FlexRow = require("../Flex-row.example");
+
+var _FlexRow2 = _interopRequireDefault(_FlexRow);
+
+var _FlexFill = require("../Flex-fill.example");
+
+var _FlexFill2 = _interopRequireDefault(_FlexFill);
+
+var _FlexColumn3 = require("!!raw!../Flex-column.example");
+
+var _FlexColumn4 = _interopRequireDefault(_FlexColumn3);
+
+var _FlexRow3 = require("!!raw!../Flex-row.example");
+
+var _FlexRow4 = _interopRequireDefault(_FlexRow3);
+
+var _FlexFill3 = require("!!raw!../Flex-fill.example");
+
+var _FlexFill4 = _interopRequireDefault(_FlexFill3);
+
+var _Flex = require("!!react-docgen!../Flex");
 
 var _Flex2 = _interopRequireDefault(_Flex);
 
-var _Flex3 = require("!!raw!../Flex.example");
+var _FlexItem = require("!!react-docgen!../FlexItem");
 
-var _Flex4 = _interopRequireDefault(_Flex3);
-
-var _Flex5 = require("!!react-docgen!../Flex");
-
-var _Flex6 = _interopRequireDefault(_Flex5);
+var _FlexItem2 = _interopRequireDefault(_FlexItem);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); } /**
-                                                                                                                   * Created by ge on 6/24/16.
-                                                                                                                   */
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by ge on 6/24/16.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
 
-function Readme(_ref) {
-  _objectDestructuringEmpty(_ref);
+var Readme = function (_Component) {
+  _inherits(Readme, _Component);
 
-  return _react2.default.createElement(
-    _reactMarkdownit2.default,
-    { stripIndent: true },
-    "\n      # React Layout Components Template\n\n      [![github](https://img.shields.io/github/downloads/episodeyang/react-layout-components/total.svg?style=flat-square&maxAge=2592000)]()\n\n      A template repo for react components written with es6 syntax.\n\n      ## Usage (as a template)\n\n      ~~~shell\n      git clone https://github.com/episodeyang/react-layout-components <name of your new component>\n      cd <name of your new component>\n      rm -r .git\n\n      # now do your git init, git add/coommit/push\n      # replace \"react-layout-components\" with your own\n      # replace \"react es6 template\" with your own\n      # replace \"react Layout Components\" with you own etc.\n      ~~~\n\n      After cloning from gitHub, you can run the example by doing\n      ~~~shell\n      npm run serve-docs\n      ~~~\n\n      And then open your browser at [http://localhost:5000](http://localhost:5000).\n\n      This one calls webpack (you should look at the `package.json` source) and uses the\n      webpack-dev-server to serve from `./src/example/` with hot module reloading.\n\n      ### How is this README written:\n      This readme is written with react and markdown. It includes:\n      1. a **live react component demo**\n      2. a table of the component's props that is generated automatically\n      3. **source** of the example component\n\n      ## Example Component: `Flex`\n      This component makes you a delicious Subway sandwich.\n      ",
-    _react2.default.createElement(_Flex2.default, null),
-    "### Props",
-    "This table below is generated automatically",
-    _react2.default.createElement(
-      "div",
-      { className: "table-container horizontal-scroll flex-column center" },
-      _react2.default.createElement(_reactComponentPropsTable2.default, { propMetaData: _Flex6.default.props })
-    ),
-    "\n      ### Usage Example\n\n      The source code below of the example above is loaded using the webpack raw loader.",
-    _react2.default.createElement(
-      _reactHighlight2.default,
-      null,
-      _Flex4.default
-    ),
-    "\n      ## Develop\n\n      1. First make your changes, then git commit. Use `serve-docs` to view live update at [http://localhost:5000](http://localhost:5000).\n      2. run `build-docs`, `build-static-docs`, `gh-pages`\n      3. Then remember to push to master.\n\n      "
-  );
-}
+  function Readme() {
+    _classCallCheck(this, Readme);
+
+    return _possibleConstructorReturn(this, _Component.apply(this, arguments));
+  }
+
+  Readme.prototype.render = function render() {
+    return _react2.default.createElement(
+      _reactMarkdownit2.default,
+      { stripIndent: true },
+      "\n        # React Layout Components\n\n        A collection of layout components that allow you to write responsive views in a functional way.\n\n\n        [![github](https://img.shields.io/github/downloads/episodeyang/react-layout-components/total.svg?style=flat-square&maxAge=2592000)]()\n\n        ## Usage\n\n        ~~~shell\n        npm install react-layout-components\n        ~~~\n\n        ## Example Component: `Flex` and `FlexItem`\n\n        Flex and FlexItems are used in conjunction to build a flex box.\n\n        ### Props: `Flex`\n        ",
+      _react2.default.createElement(
+        "div",
+        { className: "table-container horizontal-scroll flex-column center" },
+        _react2.default.createElement(_reactComponentPropsTable2.default, { propMetaData: _Flex2.default.props })
+      ),
+      "### Props: `FlexItem`",
+      _react2.default.createElement(
+        "div",
+        { className: "table-container horizontal-scroll flex-column center" },
+        _react2.default.createElement(_reactComponentPropsTable2.default, { propMetaData: _FlexItem2.default.props })
+      ),
+      "### Usage Example",
+      _react2.default.createElement(_FlexRow2.default, null),
+      "#### Source Code",
+      _react2.default.createElement(
+        _reactHighlight2.default,
+        null,
+        _FlexRow4.default
+      ),
+      _react2.default.createElement(_FlexColumn2.default, null),
+      "#### Source Code",
+      _react2.default.createElement(
+        _reactHighlight2.default,
+        null,
+        _FlexColumn4.default
+      ),
+      _react2.default.createElement(_FlexFill2.default, null),
+      "#### Source Code",
+      _react2.default.createElement(
+        _reactHighlight2.default,
+        null,
+        _FlexFill4.default
+      ),
+      "\n        ## Develop\n\n        1. First make your changes, then git commit. Use `serve-docs` to view live update at [http://localhost:5000](http://localhost:5000).\n        2. run `build-docs`, `build-static-docs`, `gh-pages`\n        3. Then remember to push to master.\n\n        "
+    );
+  };
+
+  return Readme;
+}(_react.Component);
+
+exports.default = Readme;
+;
+
+(function () {
+  if (typeof __REACT_HOT_LOADER__ === 'undefined') {
+    return;
+  }
+
+  __REACT_HOT_LOADER__.register(Readme, "Readme", "src/example/Readme.js");
+})();
+
+;
