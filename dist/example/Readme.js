@@ -75,7 +75,7 @@ var Readme = function (_Component) {
     return _react2.default.createElement(
       _reactMarkdownit2.default,
       { stripIndent: true },
-      "\n        # React Layout Components\n\n        A collection of layout components that allow you to write responsive views in a functional way.\n\n\n        [![github](https://img.shields.io/github/downloads/episodeyang/react-layout-components/total.svg?style=flat-square&maxAge=2592000)]()\n\n        ## Usage\n\n        ~~~shell\n        npm install react-layout-components\n        ~~~\n\n        ## Example Component: `Flex` and `FlexItem`\n\n        Flex and FlexItems are used in conjunction to build a flex box.\n\n        ### Props: `Flex`\n        ",
+      "\n        # React Layout Components\n\n        A collection of layout components that allow you to write responsive views in a functional way.\n\n\n        [![github](https://img.shields.io/github/downloads/episodeyang/layout-components/total.svg?style=flat-square&maxAge=2592000)]()\n\n        ## Usage\n\n        ~~~shell\n        npm install layout-components\n        ~~~\n\n        ## Example Component: `Flex` and `FlexItem`\n\n        Flex and FlexItems are used in conjunction to build a flex box.\n\n        ### Props: `Flex`\n        ",
       _react2.default.createElement(
         "div",
         { className: "table-container horizontal-scroll flex-column center" },

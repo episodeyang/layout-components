@@ -1,4 +1,4 @@
-# react-layout-components
+# layout-components
 
 A collection of layout components for React and can bring your code to a new level.
 

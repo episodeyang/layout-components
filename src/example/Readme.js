@@ -25,12 +25,12 @@ export default class Readme extends Component {
         A collection of layout components that allow you to write responsive views in a functional way.
 
 
-        [![github](https://img.shields.io/github/downloads/episodeyang/react-layout-components/total.svg?style=flat-square&maxAge=2592000)]()
+        [![github](https://img.shields.io/github/downloads/episodeyang/layout-components/total.svg?style=flat-square&maxAge=2592000)]()
 
         ## Usage
 
         ~~~shell
-        npm install react-layout-components
+        npm install layout-components
         ~~~
 
         ## Example Component: \`Flex\` and \`FlexItem\`
