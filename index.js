@@ -17,8 +17,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /**
  * Created by ge on 6/23/16.
  */
-
-
 var readmeContainer = document.body.querySelector('#readme-container');
 (0, _reactDom.render)(_react2.default.createElement(
   _reactHotLoader.AppContainer,
