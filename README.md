@@ -2,6 +2,8 @@
 
 A collection of layout components for React and can bring your code to a new level.
 
+See live demos here: [layout-components](http://www.episodeyang.com/layout-components/)
+
 ## Usage (as a template)
 
 ```shell
@@ -11,7 +13,10 @@ npm install layout-components
 and then in your code, you can import
 
 ```javascript
-import {Responsive, Row, Flex, FlexItem} from 'layout-components';
+import {Responsive, Row, Flex, FlexItem, flexStyle} from 'layout-components';
+const {flexFixed, flexFluid} = flexStyle;
+
+// More detailed demo see link above.
 ```
 
 ## Develop
