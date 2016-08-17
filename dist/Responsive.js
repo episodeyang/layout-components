@@ -68,12 +68,14 @@ var Responsive = (_temp2 = _class = function (_React$Component) {
     var _props = this.props;
     var fill = _props.fill;
     var height = _props.height;
+    var container = this.refs.container;
 
-    var width;
+
+    var width = void 0;
     if (fill) {
-      if (height) width = this.refs.container.clientHeight;else width = this.refs.container.clientWidth;
+      if (height) width = container.clientHeight;else width = container.clientWidth;
     } else {
-      if (this.props.height) width = window.innerHeight;else width = window.innerWidth;
+      if (height) width = window.innerHeight;else width = window.innerWidth;
     }
     this.setState({ width: width });
     return width;
@@ -116,7 +118,7 @@ var Responsive = (_temp2 = _class = function (_React$Component) {
 
     var _children = [].concat(children);
     for (var key in children) {
-      if (children[key].props[breakKey]) return children[key];
+      if (children[key].props["data-" + breakKey]) return children[key];
     }
     return _react2.default.createElement(
       "div",
