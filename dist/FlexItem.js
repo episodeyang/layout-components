@@ -59,7 +59,7 @@ var FlexItem = (_temp = _class = function (_Component) {
     if (fixed) flexStyle = _styleGlobals.flexFixed;
     return _react2.default.createElement(
       Component,
-      _extends({}, props, { ref: "container", width: width, height: height, style: _extends({}, flexStyle, style, { width: width }) }),
+      _extends({}, props, { ref: "container", width: width, height: height, style: _extends({}, flexStyle, style, { width: width, height: height }) }),
       children
     );
   };
