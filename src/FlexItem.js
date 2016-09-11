@@ -9,6 +9,8 @@ const styles = {};
 var {any} = PropTypes;
 export default class FlexItem extends Component {
   static propTypes = {
+    /** if a component is passed in, then it is used to substitute the `div` container */
+    component: any,
     /** if the component is fluid (width/height) */
     fluid: any,
     /** if the component is fixed (width/height) */
@@ -48,9 +50,9 @@ export default class FlexItem extends Component {
 
   render() {
     var flexStyle;
-    var {tagName="div", style = {}, fluid, fixed, width, children = [], ...props} = this.props;
+    var {component = "div", style = {}, fluid, fixed, width, children = [], ...props} = this.props;
     if (fluid) flexStyle = flexFluid;
     if (fixed) flexStyle = flexFixed;
-    return createElement(tagName, {...props, ref: "DIV", style: {...flexStyle, ...style, width}}, children);
+    return createElement(component, {...props, ref: "DIV", style: {...flexStyle, ...style, width}}, children);
   }
 }

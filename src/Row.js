@@ -8,10 +8,10 @@ const thisStyle = {
   width: "100%"
 };
 export default function Row(_props) {
-  var {tagName, style, children = null, ...props} = _props;
+  var {component, style, children = null, ...props} = _props;
   var thisProps = {...props, style: {...thisStyle, ...style}};
-  if (tagName) {
-    return createElement(tagName, thisProps, children);
+  if (component) {
+    return createElement(component, thisProps, children);
   } else {
     if (children.length > 1) throw new Error("when used as a abstract container, can have only one child");
     return cloneElement(children, thisProps);

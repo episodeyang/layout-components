@@ -2,7 +2,7 @@
 import {createElement, cloneElement} from 'react';
 
 export default function Width(_props) {
-  var {tagName, style, children = null, width, block, inlineBlock, ...props} = _props;
+  var {component, style, children = null, width, block, inlineBlock, ...props} = _props;
   var thisStyle = {
     flex: "0 0 auto",
     position: "relative",
@@ -12,6 +12,6 @@ export default function Width(_props) {
   if (block) thisStyle.display = "block";
   if (inlineBlock) thisStyle.display = "inline-block";
   var thisProps = {...props, style: {...thisStyle, ...style}};
-  if (tagName) return createElement(tagName, thisProps, children);
+  if (component) return createElement(component, thisProps, children);
   else return cloneElement(children, thisProps);
 }

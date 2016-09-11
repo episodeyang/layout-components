@@ -4,8 +4,8 @@ import React, {PropTypes} from 'react';
 import {flexRow, flexColumn} from "./style-globals";
 
 export default function Flex(_props) {
-  var {tagName="div", style, row, column, fill, align, justify, children = [], ...props} = _props;
-  var Tag = tagName;
+  var {component="div", style, row, column, fill, align, justify, children = [], ...props} = _props;
+  var Tag = component;
   var thisStyle;
   if (column) thisStyle = flexColumn;
   if (row) thisStyle = flexRow;
@@ -25,7 +25,7 @@ export default function Flex(_props) {
 var {any, bool, string} = PropTypes;
 Flex.prototype.propTypes = {
   /** an optional */
-  tagName: string,
+  component: string,
   row: any,
   column: any,
   fill: bool,
@@ -36,5 +36,5 @@ Flex.prototype.propTypes = {
   style: any
 };
 Flex.prototype.defaultProps = {
-  tagName: "div"
+  component: "div"
 };
