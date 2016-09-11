@@ -12,7 +12,7 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 
 
 function Width(_props) {
-  var tagName = _props.tagName;
+  var component = _props.component;
   var style = _props.style;
   var _props$children = _props.children;
   var children = _props$children === undefined ? null : _props$children;
@@ -20,7 +20,7 @@ function Width(_props) {
   var block = _props.block;
   var inlineBlock = _props.inlineBlock;
 
-  var props = _objectWithoutProperties(_props, ["tagName", "style", "children", "width", "block", "inlineBlock"]);
+  var props = _objectWithoutProperties(_props, ["component", "style", "children", "width", "block", "inlineBlock"]);
 
   var thisStyle = {
     flex: "0 0 auto",
@@ -31,7 +31,7 @@ function Width(_props) {
   if (block) thisStyle.display = "block";
   if (inlineBlock) thisStyle.display = "inline-block";
   var thisProps = _extends({}, props, { style: _extends({}, thisStyle, style) });
-  if (tagName) return (0, _react.createElement)(tagName, thisProps, children);else return (0, _react.cloneElement)(children, thisProps);
+  if (component) return (0, _react.createElement)(component, thisProps, children);else return (0, _react.cloneElement)(children, thisProps);
 }
 ;
 

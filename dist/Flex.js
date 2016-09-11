@@ -18,8 +18,8 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 
 
 function Flex(_props) {
-  var _props$tagName = _props.tagName;
-  var tagName = _props$tagName === undefined ? "div" : _props$tagName;
+  var _props$component = _props.component;
+  var component = _props$component === undefined ? "div" : _props$component;
   var style = _props.style;
   var row = _props.row;
   var column = _props.column;
@@ -29,9 +29,9 @@ function Flex(_props) {
   var _props$children = _props.children;
   var children = _props$children === undefined ? [] : _props$children;
 
-  var props = _objectWithoutProperties(_props, ["tagName", "style", "row", "column", "fill", "align", "justify", "children"]);
+  var props = _objectWithoutProperties(_props, ["component", "style", "row", "column", "fill", "align", "justify", "children"]);
 
-  var Tag = tagName;
+  var Tag = component;
   var thisStyle;
   if (column) thisStyle = _styleGlobals.flexColumn;
   if (row) thisStyle = _styleGlobals.flexRow;
@@ -54,7 +54,7 @@ var string = _react.PropTypes.string;
 
 Flex.prototype.propTypes = {
   /** an optional */
-  tagName: string,
+  component: string,
   row: any,
   column: any,
   fill: bool,
@@ -65,7 +65,7 @@ Flex.prototype.propTypes = {
   style: any
 };
 Flex.prototype.defaultProps = {
-  tagName: "div"
+  component: "div"
 };
 ;
 

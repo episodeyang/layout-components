@@ -72,8 +72,8 @@ var FlexItem = (_temp = _class = function (_Component) {
   FlexItem.prototype.render = function render() {
     var flexStyle;
     var _props3 = this.props;
-    var _props3$tagName = _props3.tagName;
-    var tagName = _props3$tagName === undefined ? "div" : _props3$tagName;
+    var _props3$component = _props3.component;
+    var component = _props3$component === undefined ? "div" : _props3$component;
     var _props3$style = _props3.style;
     var style = _props3$style === undefined ? {} : _props3$style;
     var fluid = _props3.fluid;
@@ -82,15 +82,17 @@ var FlexItem = (_temp = _class = function (_Component) {
     var _props3$children = _props3.children;
     var children = _props3$children === undefined ? [] : _props3$children;
 
-    var props = _objectWithoutProperties(_props3, ["tagName", "style", "fluid", "fixed", "width", "children"]);
+    var props = _objectWithoutProperties(_props3, ["component", "style", "fluid", "fixed", "width", "children"]);
 
     if (fluid) flexStyle = _styleGlobals.flexFluid;
     if (fixed) flexStyle = _styleGlobals.flexFixed;
-    return (0, _react.createElement)(tagName, _extends({}, props, { ref: "DIV", style: _extends({}, flexStyle, style, { width: width }) }), children);
+    return (0, _react.createElement)(component, _extends({}, props, { ref: "DIV", style: _extends({}, flexStyle, style, { width: width }) }), children);
   };
 
   return FlexItem;
 }(_react.Component), _class.propTypes = {
+  /** if a component is passed in, then it is used to substitute the `div` container */
+  component: any,
   /** if the component is fluid (width/height) */
   fluid: any,
   /** if the component is fixed (width/height) */

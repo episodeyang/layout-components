@@ -18,16 +18,16 @@ var thisStyle = {
   width: "100%"
 };
 function Row(_props) {
-  var tagName = _props.tagName;
+  var component = _props.component;
   var style = _props.style;
   var _props$children = _props.children;
   var children = _props$children === undefined ? null : _props$children;
 
-  var props = _objectWithoutProperties(_props, ["tagName", "style", "children"]);
+  var props = _objectWithoutProperties(_props, ["component", "style", "children"]);
 
   var thisProps = _extends({}, props, { style: _extends({}, thisStyle, style) });
-  if (tagName) {
-    return (0, _react.createElement)(tagName, thisProps, children);
+  if (component) {
+    return (0, _react.createElement)(component, thisProps, children);
   } else {
     if (children.length > 1) throw new Error("when used as a abstract container, can have only one child");
     return (0, _react.cloneElement)(children, thisProps);
