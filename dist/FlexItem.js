@@ -40,53 +40,28 @@ var FlexItem = (_temp = _class = function (_Component) {
     return _possibleConstructorReturn(this, _Component.apply(this, arguments));
   }
 
-  FlexItem.prototype.componentDidMount = function componentDidMount() {
-    this.container = _reactDom2.default.findDOMNode(this.refs["DIV"]);
-    var _props = this.props;
-    var width = _props.width;
-    var height = _props.height;
-
-    if (width) this.setWidth(width);
-    if (height) this.setHeight(height);
-  };
-
-  FlexItem.prototype.componentWillReceiveProps = function componentWillReceiveProps(newProps) {
-    var _props2 = this.props;
-    var width = _props2.width;
-    var height = _props2.height;
-
-    if (width) this.setWidth(width);
-    if (height) this.setHeight(height);
-  };
-
   FlexItem.prototype.componentWillUnmount = function componentWillUnmount() {};
-
-  FlexItem.prototype.setWidth = function setWidth(width) {
-    this.container.style.width = width;
-  };
-
-  FlexItem.prototype.setHeight = function setHeight(height) {
-    this.container.style.height = height;
-  };
 
   FlexItem.prototype.render = function render() {
     var flexStyle;
-    var _props3 = this.props;
-    var _props3$component = _props3.component;
-    var component = _props3$component === undefined ? "div" : _props3$component;
-    var _props3$style = _props3.style;
-    var style = _props3$style === undefined ? {} : _props3$style;
-    var fluid = _props3.fluid;
-    var fixed = _props3.fixed;
-    var width = _props3.width;
-    var _props3$children = _props3.children;
-    var children = _props3$children === undefined ? [] : _props3$children;
+    var _props = this.props;
+    var Component = _props.component;
+    var style = _props.style;
+    var fluid = _props.fluid;
+    var fixed = _props.fixed;
+    var width = _props.width;
+    var height = _props.height;
+    var children = _props.children;
 
-    var props = _objectWithoutProperties(_props3, ["component", "style", "fluid", "fixed", "width", "children"]);
+    var props = _objectWithoutProperties(_props, ["component", "style", "fluid", "fixed", "width", "height", "children"]);
 
     if (fluid) flexStyle = _styleGlobals.flexFluid;
     if (fixed) flexStyle = _styleGlobals.flexFixed;
-    return (0, _react.createElement)(component, _extends({}, props, { ref: "DIV", style: _extends({}, flexStyle, style, { width: width }) }), children);
+    return _react2.default.createElement(
+      Component,
+      _extends({}, props, { ref: "container", width: width, height: height, style: _extends({}, flexStyle, style, { width: width }) }),
+      children
+    );
   };
 
   return FlexItem;
@@ -104,6 +79,9 @@ var FlexItem = (_temp = _class = function (_Component) {
   /** style of component */
   style: any,
   children: any
+}, _class.defaultProps = {
+  component: 'div',
+  style: {}
 }, _temp);
 exports.default = FlexItem;
 ;
