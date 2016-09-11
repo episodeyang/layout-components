@@ -24,8 +24,13 @@ export default class FlexItem extends Component {
     children: any
   };
 
+  static defaultProps = {
+    component: 'div',
+    style: {}
+  };
+
   componentDidMount() {
-    this.container = ReactDOM.findDOMNode(this.refs["DIV"]);
+    this.container = ReactDOM.findDOMNode(this.refs["container"]);
     var {width, height} = this.props;
     if (width) this.setWidth(width);
     if (height) this.setHeight(height);
@@ -50,9 +55,21 @@ export default class FlexItem extends Component {
 
   render() {
     var flexStyle;
-    var {component = "div", style = {}, fluid, fixed, width, children = [], ...props} = this.props;
+    const {
+      component: Component,
+      style,
+      fluid,
+      fixed,
+      width,
+      children,
+      ...props
+    } = this.props;
     if (fluid) flexStyle = flexFluid;
     if (fixed) flexStyle = flexFixed;
-    return createElement(component, {...props, ref: "DIV", style: {...flexStyle, ...style, width}}, children);
+    return (
+      <Component{...props} ref="container" style={{...flexStyle, ...style, width}}>
+        {children}
+      </Component>
+    );
   }
 }
