@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 exports.__esModule = true;
 exports.default = undefined;
@@ -8,15 +8,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 var _class, _temp; /** Created by ge on 4/24/16. */
 
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = require("react-dom");
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-var _styleGlobals = require("./style-globals");
+var _styleGlobals = require('./style-globals');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53,13 +49,13 @@ var FlexItem = (_temp = _class = function (_Component) {
     var height = _props.height;
     var children = _props.children;
 
-    var props = _objectWithoutProperties(_props, ["component", "style", "fluid", "fixed", "width", "height", "children"]);
+    var props = _objectWithoutProperties(_props, ['component', 'style', 'fluid', 'fixed', 'width', 'height', 'children']);
 
     if (fluid) flexStyle = _styleGlobals.flexFluid;
     if (fixed) flexStyle = _styleGlobals.flexFixed;
     return _react2.default.createElement(
       Component,
-      _extends({}, props, { ref: "container", width: width, height: height, style: _extends({}, flexStyle, style, { width: width, height: height }) }),
+      _extends({}, props, { width: width, height: height, style: _extends({}, flexStyle, style, { width: width, height: height }) }),
       children
     );
   };
@@ -91,11 +87,11 @@ exports.default = FlexItem;
     return;
   }
 
-  __REACT_HOT_LOADER__.register(styles, "styles", "src/FlexItem.js");
+  __REACT_HOT_LOADER__.register(styles, 'styles', 'src/FlexItem.js');
 
-  __REACT_HOT_LOADER__.register(any, "any", "src/FlexItem.js");
+  __REACT_HOT_LOADER__.register(any, 'any', 'src/FlexItem.js');
 
-  __REACT_HOT_LOADER__.register(FlexItem, "FlexItem", "src/FlexItem.js");
+  __REACT_HOT_LOADER__.register(FlexItem, 'FlexItem', 'src/FlexItem.js');
 })();
 
 ;
