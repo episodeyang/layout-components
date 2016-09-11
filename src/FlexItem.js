@@ -1,6 +1,5 @@
 /** Created by ge on 4/24/16. */
 import React, {Component, PropTypes, createElement} from 'react';
-import ReactDOM from "react-dom";
 
 import {flexFluid, flexFixed} from "./style-globals";
 
@@ -47,7 +46,7 @@ export default class FlexItem extends Component {
     if (fluid) flexStyle = flexFluid;
     if (fixed) flexStyle = flexFixed;
     return (
-      <Component {...props} ref="container" width={width} height={height} style={{...flexStyle, ...style, width, height}}>
+      <Component {...props} width={width} height={height} style={{...flexStyle, ...style, width, height}}>
         {children}
       </Component>
     );
