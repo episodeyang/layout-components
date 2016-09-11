@@ -29,28 +29,7 @@ export default class FlexItem extends Component {
     style: {}
   };
 
-  componentDidMount() {
-    this.container = ReactDOM.findDOMNode(this.refs["container"]);
-    var {width, height} = this.props;
-    if (width) this.setWidth(width);
-    if (height) this.setHeight(height);
-  }
-
-  componentWillReceiveProps(newProps) {
-    var {width, height} = this.props;
-    if (width) this.setWidth(width);
-    if (height) this.setHeight(height);
-  }
-
   componentWillUnmount() {
-  }
-
-  setWidth(width) {
-    this.container.style.width = width;
-  }
-
-  setHeight(height) {
-    this.container.style.height = height;
   }
 
   render() {
@@ -61,13 +40,14 @@ export default class FlexItem extends Component {
       fluid,
       fixed,
       width,
+      height,
       children,
       ...props
     } = this.props;
     if (fluid) flexStyle = flexFluid;
     if (fixed) flexStyle = flexFixed;
     return (
-      <Component{...props} ref="container" style={{...flexStyle, ...style, width}}>
+      <Component{...props} ref="container" width={width} height={height} style={{...flexStyle, ...style, width}}>
         {children}
       </Component>
     );
