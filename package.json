@@ -1,6 +1,6 @@
 {
   "name": "layout-components",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "A React Layout Componentss. Contains webpack configuration and document generator.",
   "main": "dist/index.js",
   "scripts": {
