@@ -1,7 +1,7 @@
 "use strict";
 
 exports.__esModule = true;
-exports.flexStyle = exports.Width = exports.Row = exports.Responsive = exports.FlexItem = exports.FlexHide = exports.Flex = undefined;
+exports.flexStyle = exports.Width = exports.Row = exports.Responsive = exports.FlexSpacer = exports.FlexItem = exports.FlexHide = exports.Flex = undefined;
 
 var _Flex = require("./Flex");
 
@@ -27,6 +27,15 @@ Object.defineProperty(exports, "FlexItem", {
   enumerable: true,
   get: function get() {
     return _interopRequireDefault(_FlexItem).default;
+  }
+});
+
+var _FlexSpacer = require("./FlexSpacer");
+
+Object.defineProperty(exports, "FlexSpacer", {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_FlexSpacer).default;
   }
 });
 
