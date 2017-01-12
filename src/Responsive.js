@@ -10,13 +10,15 @@ export default class Responsive extends React.Component {
     breakPoints: any,
     children: node,
     fill: any,
-    onResize: func
+    onBreakChange: func
   };
 
+  //todo: optimize this component, avoid using state when not necessary
   componentWillMount() {
     let orderedBreakPoints = this.orderBreakPoints();
     let width = this.getWidth();
-    this.getBreakRange(orderedBreakPoints, width);
+    let breakKey = this.getBreakRange(orderedBreakPoints, width);
+    this.setBreakKey(breakKey);
   };
 
   componentDidMount() {
@@ -49,8 +51,8 @@ export default class Responsive extends React.Component {
 
   onResize = () => {
     let width = this.getWidth();
-    this.getBreakRange(this.state.orderedBreakPoints, width);
-    if (this.props.onResize) this.props.onResize(width);
+    let breakKey = this.getBreakRange(this.state.orderedBreakPoints, width);
+    this.setBreakKey(breakKey);
   };
 
   orderBreakPoints(newProps) {
@@ -67,15 +69,19 @@ export default class Responsive extends React.Component {
   getBreakRange(orderedBreakPoints, width) {
     // breakPoints are sorted to be ascending
     if (orderedBreakPoints.length === 0) {
-      return this.setState({breakKey: "default"});
+      return "default";
     }
     for (let i = 0; i < orderedBreakPoints.length; i++) {
       if (width <= orderedBreakPoints[i].breakPoint) {
-        this.setState({breakKey: orderedBreakPoints[i].breakKey});
-        return;
+        return orderedBreakPoints[i].breakKey;
       }
     }
-    this.setState({breakKey: "default"});
+    return "default";
+  }
+
+  setBreakKey(breakKey) {
+    this.setState({breakKey});
+    if (this.props.onBreakChange) this.props.onBreakChange(breakKey);
   }
 
   renderChild() {
