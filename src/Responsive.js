@@ -4,17 +4,18 @@
  * pick the children with "default" key.
  * */
 import React from "react";
-var {any, node, string, number, bool} = React.PropTypes;
+let {any, node, func, string, number, bool} = React.PropTypes;
 export default class Responsive extends React.Component {
   static propTypes = {
     breakPoints: any,
     children: node,
-    fill: any
+    fill: any,
+    onResize: func
   };
 
   componentWillMount() {
-    var orderedBreakPoints = this.orderBreakPoints();
-    var width = this.getWidth();
+    let orderedBreakPoints = this.orderBreakPoints();
+    let width = this.getWidth();
     this.getBreakRange(orderedBreakPoints, width);
   };
 
@@ -46,15 +47,16 @@ export default class Responsive extends React.Component {
     return width;
   }
 
-  onResize = ()=> {
-    var width = this.getWidth();
+  onResize = () => {
+    let width = this.getWidth();
     this.getBreakRange(this.state.orderedBreakPoints, width);
+    if (this.props.onResize) this.props.onResize(width);
   };
 
   orderBreakPoints(newProps) {
-    var {breakPoints} = newProps || this.props;
-    var orderedBreakPoints = Object.keys(breakPoints)
-      .map((k)=>({breakPoint: breakPoints[k], breakKey: k}))
+    let {breakPoints} = newProps || this.props;
+    let orderedBreakPoints = Object.keys(breakPoints)
+      .map((k) => ({breakPoint: breakPoints[k], breakKey: k}))
       .sort(function (a, b) {
         return (a.breakKey - b.breakKey);
       });
@@ -67,7 +69,7 @@ export default class Responsive extends React.Component {
     if (orderedBreakPoints.length === 0) {
       return this.setState({breakKey: "default"});
     }
-    for (var i = 0; i < orderedBreakPoints.length; i++) {
+    for (let i = 0; i < orderedBreakPoints.length; i++) {
       if (width <= orderedBreakPoints[i].breakPoint) {
         this.setState({breakKey: orderedBreakPoints[i].breakKey});
         return;
@@ -77,17 +79,17 @@ export default class Responsive extends React.Component {
   }
 
   renderChild() {
-    var {children} = this.props;
-    var {breakKey} = this.state || {};
-    var _children = [].concat(children);
-    for (var key in children) {
+    let {children} = this.props;
+    let {breakKey} = this.state || {};
+    let _children = [].concat(children);
+    for (let key in children) {
       if (children[key].props[`data-${breakKey}`]) return (children[key]);
     }
     return (<div>no child found</div>);
   }
 
   render() {
-    var {fill} = this.props;
+    let {fill} = this.props;
     if (fill) {
       return (
         <div ref="container">
