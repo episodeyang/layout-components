@@ -25,6 +25,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var _React$PropTypes = _react2.default.PropTypes;
 var any = _React$PropTypes.any;
 var node = _React$PropTypes.node;
+var func = _React$PropTypes.func;
 var string = _React$PropTypes.string;
 var number = _React$PropTypes.number;
 var bool = _React$PropTypes.bool;
@@ -43,6 +44,7 @@ var Responsive = (_temp2 = _class = function (_React$Component) {
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.onResize = function () {
       var width = _this.getWidth();
       _this.getBreakRange(_this.state.orderedBreakPoints, width);
+      if (_this.props.onResize) _this.props.onResize(width);
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -145,7 +147,8 @@ var Responsive = (_temp2 = _class = function (_React$Component) {
 }(_react2.default.Component), _class.propTypes = {
   breakPoints: any,
   children: node,
-  fill: any
+  fill: any,
+  onResize: func
 }, _temp2);
 exports.default = Responsive;
 ;
@@ -158,6 +161,8 @@ exports.default = Responsive;
   __REACT_HOT_LOADER__.register(any, "any", "src/Responsive.js");
 
   __REACT_HOT_LOADER__.register(node, "node", "src/Responsive.js");
+
+  __REACT_HOT_LOADER__.register(func, "func", "src/Responsive.js");
 
   __REACT_HOT_LOADER__.register(string, "string", "src/Responsive.js");
 
