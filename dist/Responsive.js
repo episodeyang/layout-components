@@ -43,15 +43,17 @@ var Responsive = (_temp2 = _class = function (_React$Component) {
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.onResize = function () {
       var width = _this.getWidth();
-      _this.getBreakRange(_this.state.orderedBreakPoints, width);
-      if (_this.props.onResize) _this.props.onResize(width);
+      var breakKey = _this.getBreakRange(_this.state.orderedBreakPoints, width);
+      _this.setBreakKey(breakKey);
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
+  //todo: optimize this component, avoid using state when not necessary
   Responsive.prototype.componentWillMount = function componentWillMount() {
     var orderedBreakPoints = this.orderBreakPoints();
     var width = this.getWidth();
-    this.getBreakRange(orderedBreakPoints, width);
+    var breakKey = this.getBreakRange(orderedBreakPoints, width);
+    this.setBreakKey(breakKey);
   };
 
   Responsive.prototype.componentDidMount = function componentDidMount() {
@@ -100,15 +102,19 @@ var Responsive = (_temp2 = _class = function (_React$Component) {
   Responsive.prototype.getBreakRange = function getBreakRange(orderedBreakPoints, width) {
     // breakPoints are sorted to be ascending
     if (orderedBreakPoints.length === 0) {
-      return this.setState({ breakKey: "default" });
+      return "default";
     }
     for (var i = 0; i < orderedBreakPoints.length; i++) {
       if (width <= orderedBreakPoints[i].breakPoint) {
-        this.setState({ breakKey: orderedBreakPoints[i].breakKey });
-        return;
+        return orderedBreakPoints[i].breakKey;
       }
     }
-    this.setState({ breakKey: "default" });
+    return "default";
+  };
+
+  Responsive.prototype.setBreakKey = function setBreakKey(breakKey) {
+    this.setState({ breakKey: breakKey });
+    if (this.props.onBreakChange) this.props.onBreakChange(breakKey);
   };
 
   Responsive.prototype.renderChild = function renderChild() {
@@ -148,7 +154,7 @@ var Responsive = (_temp2 = _class = function (_React$Component) {
   breakPoints: any,
   children: node,
   fill: any,
-  onResize: func
+  onBreakChange: func
 }, _temp2);
 exports.default = Responsive;
 ;
