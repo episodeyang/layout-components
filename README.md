@@ -4,6 +4,10 @@ A collection of layout components for React and can bring your code to a new lev
 
 # => See live demos here: [layout-components](http://www.episodeyang.com/layout-components/) <=
 
+## Todo
+
+- [ ] update `react-docgen` to output the correct prop type in the demo table.
+
 ## Usage (as a template)
 
 ```shell

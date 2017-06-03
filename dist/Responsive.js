@@ -3,7 +3,7 @@
 exports.__esModule = true;
 exports.default = undefined;
 
-var _class, _temp2; /** Created by ge on 4/28/16.
+var _class, _temp2; /** Responsive
                      * Takes in a list of breakPoints.
                      * When the window/container width is wider than the largest break-point,
                      * pick the children with "default" key.
@@ -14,6 +14,10 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require("prop-types");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22,13 +26,9 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var _React$PropTypes = _react2.default.PropTypes;
-var any = _React$PropTypes.any;
-var node = _React$PropTypes.node;
-var func = _React$PropTypes.func;
-var string = _React$PropTypes.string;
-var number = _React$PropTypes.number;
-var bool = _React$PropTypes.bool;
+var any = _propTypes2.default.any;
+var node = _propTypes2.default.node;
+var func = _propTypes2.default.func;
 var Responsive = (_temp2 = _class = function (_React$Component) {
   _inherits(Responsive, _React$Component);
 
@@ -169,12 +169,6 @@ exports.default = Responsive;
   __REACT_HOT_LOADER__.register(node, "node", "src/Responsive.js");
 
   __REACT_HOT_LOADER__.register(func, "func", "src/Responsive.js");
-
-  __REACT_HOT_LOADER__.register(string, "string", "src/Responsive.js");
-
-  __REACT_HOT_LOADER__.register(number, "number", "src/Responsive.js");
-
-  __REACT_HOT_LOADER__.register(bool, "bool", "src/Responsive.js");
 
   __REACT_HOT_LOADER__.register(Responsive, "Responsive", "src/Responsive.js");
 })();

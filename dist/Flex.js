@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 exports.__esModule = true;
 
@@ -6,11 +6,15 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 exports.default = Flex;
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _styleGlobals = require("./style-globals");
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _styleGlobals = require('./style-globals');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29,10 +33,10 @@ function Flex(_props) {
   var _props$children = _props.children;
   var children = _props$children === undefined ? [] : _props$children;
 
-  var props = _objectWithoutProperties(_props, ["component", "style", "row", "column", "fill", "align", "justify", "children"]);
+  var props = _objectWithoutProperties(_props, ['component', 'style', 'row', 'column', 'fill', 'align', 'justify', 'children']);
 
   var Tag = component;
-  var thisStyle;
+  var thisStyle = void 0;
   if (column) thisStyle = _styleGlobals.flexColumn;
   if (row) thisStyle = _styleGlobals.flexRow;
   if (fill) thisStyle = _extends({}, thisStyle, {
@@ -48,13 +52,13 @@ function Flex(_props) {
   );
 }
 
-var any = _react.PropTypes.any;
-var bool = _react.PropTypes.bool;
-var string = _react.PropTypes.string;
+var any = _propTypes2.default.any;
+var bool = _propTypes2.default.bool;
+var string = _propTypes2.default.string;
 
 Flex.prototype.propTypes = {
   /** an optional */
-  component: string,
+  component: any,
   row: any,
   column: any,
   fill: bool,
@@ -74,13 +78,13 @@ Flex.prototype.defaultProps = {
     return;
   }
 
-  __REACT_HOT_LOADER__.register(Flex, "Flex", "src/Flex.js");
+  __REACT_HOT_LOADER__.register(Flex, 'Flex', 'src/Flex.js');
 
-  __REACT_HOT_LOADER__.register(any, "any", "src/Flex.js");
+  __REACT_HOT_LOADER__.register(any, 'any', 'src/Flex.js');
 
-  __REACT_HOT_LOADER__.register(bool, "bool", "src/Flex.js");
+  __REACT_HOT_LOADER__.register(bool, 'bool', 'src/Flex.js');
 
-  __REACT_HOT_LOADER__.register(string, "string", "src/Flex.js");
+  __REACT_HOT_LOADER__.register(string, 'string', 'src/Flex.js');
 })();
 
 ;

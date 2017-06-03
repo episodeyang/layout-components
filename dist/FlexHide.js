@@ -5,8 +5,7 @@ exports.default = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _class, _temp2; /** Created by ge on 4/27/16. */
-
+var _class, _temp2;
 
 var _react = require("react");
 

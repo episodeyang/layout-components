@@ -5,12 +5,15 @@ exports.default = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _class, _temp; /** Created by ge on 4/24/16. */
-
+var _class, _temp;
 
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _styleGlobals = require('./style-globals');
 
@@ -26,7 +29,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var styles = {};
 
-var any = _react.PropTypes.any;
+var any = _propTypes2.default.any;
 var FlexItem = (_temp = _class = function (_Component) {
   _inherits(FlexItem, _Component);
 
