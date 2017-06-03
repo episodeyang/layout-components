@@ -25,7 +25,7 @@ export default function Flex(_props) {
 var {any, bool, string} = PropTypes;
 Flex.prototype.propTypes = {
   /** an optional */
-  component: string,
+  component: any,
   row: any,
   column: any,
   fill: bool,
