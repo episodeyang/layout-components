@@ -1,4 +1,3 @@
-/** Created by ge on 4/24/16. */
 import React from 'react';
 import {Flex} from "./";
 import {FlexItem} from "./";

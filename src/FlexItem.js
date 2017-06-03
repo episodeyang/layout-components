@@ -1,11 +1,12 @@
-/** Created by ge on 4/24/16. */
-import React, {Component, PropTypes, createElement} from 'react';
+import React, {Component} from 'react';
+
+import PropTypes from 'prop-types'
 
 import {flexFluid, flexFixed} from "./style-globals";
 
 const styles = {};
 
-var {any} = PropTypes;
+const {any} = PropTypes;
 export default class FlexItem extends Component {
   static propTypes = {
     /** if a component is passed in, then it is used to substitute the `div` container */

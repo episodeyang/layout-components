@@ -1,9 +1,8 @@
-/** Created by ge on 4/27/16. */
 import React, {Component, PropTypes} from "react";
 import ReactDOM from "react-dom";
 import FlexItem from "./FlexItem";
 
-var {string, bool, func, any, node} = PropTypes;
+const {string, bool, func, any, node} = PropTypes;
 export default class FlexHide extends Component {
 
   static propTypes = {
@@ -16,7 +15,7 @@ export default class FlexHide extends Component {
   };
 
   componentWillMount() {
-    var {hide} = this.props;
+    const {hide} = this.props;
     this.setState({show: !hide, entering: !hide, leaving: hide, init: true});
   }
 

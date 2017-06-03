@@ -1,10 +1,12 @@
-/** Created by ge on 4/28/16.
+/** Responsive
  * Takes in a list of breakPoints.
  * When the window/container width is wider than the largest break-point,
  * pick the children with "default" key.
  * */
 import React from "react";
-let {any, node, func, string, number, bool} = React.PropTypes;
+import PropTypes from 'prop-types';
+const {any, node, func} = PropTypes;
+
 export default class Responsive extends React.Component {
   static propTypes = {
     breakPoints: any,

@@ -93,5 +93,10 @@
   "peerDependencies": {
     "react": "^15.3.0",
     "react-dom": "^15.3.0"
+  },
+  "dependencies": {
+    "prop-types": "^15.5.10",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
   }
 }

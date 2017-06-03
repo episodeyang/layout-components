@@ -1,4 +1,3 @@
-/** Created by ge on 4/24/16. */
 import {createElement, cloneElement} from 'react';
 
 const thisStyle = {
@@ -8,8 +7,8 @@ const thisStyle = {
   width: "100%"
 };
 export default function Row(_props) {
-  var {component, style, children = null, ...props} = _props;
-  var thisProps = {...props, style: {...thisStyle, ...style}};
+  const {component, style, children = null, ...props} = _props;
+  const thisProps = {...props, style: {...thisStyle, ...style}};
   if (component) {
     return createElement(component, thisProps, children);
   } else {

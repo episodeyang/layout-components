@@ -1,12 +1,13 @@
 /** Created by ge on 4/24/16. */
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types'
 
 import {flexRow, flexColumn} from "./style-globals";
 
 export default function Flex(_props) {
-  var {component="div", style, row, column, fill, align, justify, children = [], ...props} = _props;
-  var Tag = component;
-  var thisStyle;
+  const {component="div", style, row, column, fill, align, justify, children = [], ...props} = _props;
+  const Tag = component;
+  let thisStyle;
   if (column) thisStyle = flexColumn;
   if (row) thisStyle = flexRow;
   if (fill) thisStyle = {
@@ -22,7 +23,7 @@ export default function Flex(_props) {
     </Tag>);
 }
 
-var {any, bool, string} = PropTypes;
+const {any, bool, string} = PropTypes;
 Flex.prototype.propTypes = {
   /** an optional */
   component: any,
